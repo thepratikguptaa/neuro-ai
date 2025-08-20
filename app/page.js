@@ -106,7 +106,7 @@ export default function Home() {
                             AI Response
                         </h2>
                         {response && (
-                            <div className="text-gray-300">
+                            <div className="text-gray-300 mb-4">
                                 <pre className="whitespace-pre-wrap bg-gray-700 p-4 rounded-md">{response}</pre>
                             </div>
                         )}
