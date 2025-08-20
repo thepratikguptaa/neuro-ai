@@ -14,8 +14,11 @@ export async function POST(request) {
             messages: [{ role: "user", content: message }],
         });
 
+        let responseContent = completion.choices[0].message.content;
+        responseContent = responseContent.replace(/\*\*([^\*]+)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>");
+
         return Response.json({
-            response: completion.choices[0].message.content,
+            response: responseContent,
         });
     } catch (error) {
         return Response.json(

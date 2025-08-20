@@ -20,7 +20,7 @@ export async function POST(request) {
         const readable = new ReadableStream({
             async start(controller) {
                 for await (const chunk of stream) {
-                    const content = chunk.choices[0]?.delta?.content || "";
+                    const content = (chunk.choices[0]?.delta?.content || "").replace(/\*\*([^\*]+)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>");
                     if (content) {
                         controller.enqueue(
                             encoder.encode(
