@@ -70,8 +70,8 @@ export default function Home() {
     return (
         <div className='flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4 sm:p-6 md:p-8'>
             <div className='w-full max-w-2xl'>
-                <h1 className='text-3xl sm:text-4xl font-bold text-center mb-8 animate-bounce'>
-                    Welcome to Neuro AI 🤖
+                <h1 className='text-3xl sm:text-4xl font-bold text-center mb-8'>
+                    Welcome to Neuro AI <span className='inline-block animate-bounce'>🤖</span>
                 </h1>
 
                 <div className='bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700'>
