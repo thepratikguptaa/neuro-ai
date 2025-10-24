@@ -9,7 +9,9 @@ Neuro AI is a modern, open-source chatbot application built with Next.js and pow
 -   **🧠 Intelligent Conversations:** Powered by the state-of-the-art Gemini API for natural and insightful responses.
 -   **⚡ Real-time Streaming:** Get instant, word-by-word responses from the AI for a dynamic chat experience.
 -   **📄 Markdown Support:** Responses are rendered with basic Markdown support, including bold text and line breaks.
--   **📱 Responsive Design:** The application is fully responsive and works great on all devices, from desktops to mobile phones.
+-   **📖 Chat History:** Your conversations are saved locally, so you can pick up where you left off.
+-   **📱 Mobile-First Design:** The application is designed to be mobile-friendly, with a slide-in history panel and a clean layout.
+-   **🔒 Prompt Injection Defense:** The system prompt has been carefully crafted to make the AI more resilient to prompt injection attacks, ensuring the conversation stays on track.
 -   **💻 Developer-Friendly:** The codebase is well-structured and easy to understand, making it simple to customize and extend.
 
 ## 🛠️ Technologies Used
