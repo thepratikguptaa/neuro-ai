@@ -21,6 +21,7 @@ export default function Home() {
     const handleChat = async () => {
         setLoading(true);
         setResponse('');
+        setStreamResponse('');
 
         try {
             const res = await fetch('/api/chat', {
@@ -41,6 +42,7 @@ export default function Home() {
 
     const handleStreamChat = async () => {
         setStreaming(true);
+        setResponse('');
         setStreamResponse('');
 
         try {
@@ -77,45 +79,42 @@ export default function Home() {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-2 sm:p-6 md:p-8'>
-            <div className='w-full max-w-2xl'>
-                <h1 className='text-2xl sm:text-4xl font-bold text-center mb-6 sm:mb-8'>
-                    Welcome to Neuro AI <span className='inline-block animate-bounce'>🤖</span>
+        <div className='flex flex-col items-center justify-center min-h-screen bg-black text-white p-4'>
+            <div className='w-full max-w-3xl space-y-8'>
+                <h1 className='text-3xl sm:text-5xl font-bold text-center text-gray-200'>
+                    Neuro AI <span className='text-gray-500'>🤖</span>
                 </h1>
 
-                <div className='bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700'>
+                <div className='bg-gray-900/50 p-6 sm:p-8 rounded-2xl'>
                     <textarea
                         value={message}
-                        placeholder='Enter your message here...'
+                        placeholder='Ask me anything...'
                         onChange={(e) => setMessage(e.target.value)}
-                        className='w-full p-3 bg-gray-700 bg-opacity-50 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300'
-                        rows={3}
+                        className='w-full p-4 bg-gray-800/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-700 transition-all duration-300 resize-none'
+                        rows={4}
                     />
-                    <div className='flex flex-col sm:flex-row justify-end space-y-4 sm:space-y-0 sm:space-x-4 mt-4'>
+                    <div className='flex flex-col sm:flex-row justify-end gap-4 mt-4'>
                         <button
-                            className='bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 cursor-pointer transform hover:scale-105'
+                            className='bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
                             onClick={handleChat}
                             disabled={loading || streaming}
                         >
-                            {loading ? 'Loading...' : 'Chat'}
+                            {loading ? 'Thinking...' : 'Get Answer'}
                         </button>
                         <button
-                            className='bg-purple-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:bg-purple-700 transition-all duration-300 disabled:opacity-50 cursor-pointer transform hover:scale-105'
+                            className='bg-transparent border border-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
                             onClick={handleStreamChat}
                             disabled={loading || streaming}
                         >
-                            {streaming ? 'Streaming...' : 'Stream Chat'}
+                            {streaming ? 'Streaming...' : 'Stream Answer'}
                         </button>
                     </div>
                 </div>
 
                 {(response || streamResponse) && (
-                    <div className='mt-6 sm:mt-8 bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700'>
-                        <h2 className='text-xl sm:text-2xl font-semibold mb-4'>
-                            AI Response
-                        </h2>
+                    <div className='bg-gray-900/50 p-6 sm:p-8 rounded-2xl'>
                         {response && (
-                            <div className="text-gray-300 mb-4" style={{ whiteSpace: 'pre-wrap' }} dangerouslySetInnerHTML={{ __html: response }} />
+                            <div className="text-gray-300" style={{ whiteSpace: 'pre-wrap' }} dangerouslySetInnerHTML={{ __html: response }} />
                         )}
                         {streamResponse && (
                             <div className="text-gray-300" style={{ whiteSpace: 'pre-wrap' }} dangerouslySetInnerHTML={{ __html: streamResponse }} />
