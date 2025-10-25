@@ -20,7 +20,7 @@ export default function Home() {
     }, []);
 
     const updateHistory = (newMessage) => {
-        const updatedHistory = [newMessage, ...history.filter(item => item !== newMessage)].slice(0, 20);
+        const updatedHistory = [newMessage, ...history.filter(item => item !== newMessage)].slice(0, 12);
         setHistory(updatedHistory);
         localStorage.setItem('chatHistory', JSON.stringify(updatedHistory));
     };
