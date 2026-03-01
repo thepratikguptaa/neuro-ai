@@ -70,7 +70,7 @@ export default function Home() {
         try {
             const res = await fetch('/api/chat-stream', {
                 method: 'POST',
-                header: {
+                headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ message }),
