@@ -18,13 +18,12 @@ export async function POST(request) {
 
         const openai = new OpenAI({
             apiKey: apiKey,
-            baseURL: "https://generativelanguage.googleapis.com/v1/openai/",
+            baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
         });
 
-        console.log("Sending request to Gemini (2.0 Flash) via v1...");
-        // ... (rest of completion code)
+        console.log("Sending request to Gemini (2.5 Flash)...");
         const completion = await openai.chat.completions.create({
-            model: "gemini-2.0-flash",
+            model: "gemini-2.5-flash",
             messages: [
                 {
                     role: "system",
